@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Play, Pause, RotateCcw, SkipForward, Plus, Minus, Disc } from "lucide-react";
+import { Play, Pause, RotateCcw, SkipForward, Plus, Minus, Monitor } from "lucide-react";
 import { toast } from "sonner";
 
 interface QuarterScore {
@@ -146,7 +146,7 @@ const Index = () => {
       <div className="w-full max-w-md space-y-4">
         {/* Title */}
         <div className="flex items-center justify-center gap-3 mb-2">
-          <Disc className="h-8 w-8 text-primary fill-primary" />
+          <Monitor className="h-8 w-8 text-primary" />
           <h1 className="text-3xl font-bold text-foreground">Scoreboard</h1>
         </div>
         

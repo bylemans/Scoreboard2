@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Play, Pause, RotateCcw, SkipForward, Plus, Minus, CircleDot } from "lucide-react";
+import { Play, Pause, RotateCcw, SkipForward, Plus, Minus, Disc } from "lucide-react";
 import { toast } from "sonner";
 
 interface QuarterScore {
@@ -146,7 +146,7 @@ const Index = () => {
       <div className="w-full max-w-md space-y-4">
         {/* Title */}
         <div className="flex items-center justify-center gap-3 mb-2">
-          <CircleDot className="h-8 w-8 text-primary" />
+          <Disc className="h-8 w-8 text-primary fill-primary" />
           <h1 className="text-3xl font-bold text-foreground">Scoreboard</h1>
         </div>
         
@@ -198,11 +198,8 @@ const Index = () => {
                 className="text-sm font-semibold text-center bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-score-home rounded px-2 py-1 w-full text-muted-foreground"
                 placeholder="HOME TEAM"
               />
-              <div className="text-5xl font-bold text-score-home">
+              <div className="text-6xl font-bold text-score-home">
                 {getTotalScore("home")}
-              </div>
-              <div className="text-xs text-muted-foreground">
-                Q{currentQuarter}: {quarterScores[currentQuarter - 1].home}
               </div>
               <div className="flex gap-2">
                 <Button
@@ -234,11 +231,8 @@ const Index = () => {
                 className="text-sm font-semibold text-center bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-score-away rounded px-2 py-1 w-full text-muted-foreground"
                 placeholder="AWAY TEAM"
               />
-              <div className="text-5xl font-bold text-score-away">
+              <div className="text-6xl font-bold text-score-away">
                 {getTotalScore("away")}
-              </div>
-              <div className="text-xs text-muted-foreground">
-                Q{currentQuarter}: {quarterScores[currentQuarter - 1].away}
               </div>
               <div className="flex gap-2">
                 <Button

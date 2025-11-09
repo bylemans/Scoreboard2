@@ -142,7 +142,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 flex items-center justify-center">
+    <div className="min-h-screen bg-background dark p-4 flex items-center justify-center">
       <div className="w-full max-w-md space-y-4">
         {/* Timer */}
         <Card className="bg-timer-bg text-primary-foreground p-6 text-center">
@@ -163,15 +163,19 @@ const Index = () => {
               variant="secondary"
               onClick={nextQuarter}
               disabled={currentQuarter >= 4}
+              className="gap-2"
             >
               <SkipForward className="h-5 w-5" />
+              <span>Next</span>
             </Button>
             <Button
               size="lg"
               variant="destructive"
               onClick={resetGame}
+              className="gap-2"
             >
               <RotateCcw className="h-5 w-5" />
+              <span>Reset</span>
             </Button>
           </div>
         </Card>

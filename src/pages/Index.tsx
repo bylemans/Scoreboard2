@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Play, Pause, RotateCcw, SkipForward, Plus, Minus } from "lucide-react";
+import { Play, Pause, RotateCcw, SkipForward, Plus, Minus, CircleDot } from "lucide-react";
 import { toast } from "sonner";
 
 interface QuarterScore {
@@ -144,6 +144,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background dark p-4 flex items-center justify-center">
       <div className="w-full max-w-md space-y-4">
+        {/* Title */}
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <CircleDot className="h-8 w-8 text-primary" />
+          <h1 className="text-3xl font-bold text-foreground">Scoreboard</h1>
+        </div>
+        
         {/* Timer */}
         <Card className="bg-timer-bg text-primary-foreground p-6 text-center">
           <div className="text-sm font-medium mb-2 opacity-90">Quarter {currentQuarter} / 4</div>

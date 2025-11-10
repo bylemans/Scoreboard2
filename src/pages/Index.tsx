@@ -60,6 +60,9 @@ const Index = () => {
   }, [isRunning, timeLeft, currentQuarter]);
 
   const playAlarm = () => {
+    // Very strong vibration when timer ends
+    vibrate([200, 100, 200, 100, 200, 100, 200]);
+    
     // Play a beep sound using Web Audio API
     const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
     const audioContext = new AudioContext();
@@ -85,7 +88,15 @@ const Index = () => {
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
+  // Strong vibration function
+  const vibrate = (pattern: number | number[]) => {
+    if (navigator.vibrate) {
+      navigator.vibrate(pattern);
+    }
+  };
+
   const addScore = (team: "home" | "away") => {
+    vibrate([100, 50, 100]); // Strong double pulse
     setQuarterScores((prev) => {
       const newScores = [...prev];
       newScores[currentQuarter - 1] = {
@@ -97,6 +108,7 @@ const Index = () => {
   };
 
   const removeScore = (team: "home" | "away") => {
+    vibrate(50); // Short pulse
     setQuarterScores((prev) => {
       const newScores = [...prev];
       const currentScore = newScores[currentQuarter - 1][team];
@@ -115,6 +127,7 @@ const Index = () => {
   };
 
   const nextQuarter = () => {
+    vibrate([100, 50, 100, 50, 100]); // Triple pulse
     if (currentQuarter < 4) {
       setCurrentQuarter((prev) => prev + 1);
       setTimeLeft(15 * 60);
@@ -126,6 +139,7 @@ const Index = () => {
   };
 
   const resetGame = () => {
+    vibrate([200, 100, 200]); // Strong double pulse
     setCurrentQuarter(1);
     setTimeLeft(15 * 60);
     setIsRunning(false);
@@ -139,6 +153,7 @@ const Index = () => {
   };
 
   const toggleTimer = () => {
+    vibrate(75); // Medium pulse
     setIsRunning(!isRunning);
   };
 
